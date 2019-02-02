@@ -64,16 +64,14 @@ class TimerCountdown extends React.Component {
             return toFarsiNumber(h) + toFarsiNumber(m) + ':' + toFarsiNumber(s);
             // return h + m + ':' + s;
         };
+        this.toFarsiNumber = (n) => {
+            const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+            return n
+                .toString()
+                .replace(/\d/g, x => farsiDigits[x]);
+        }
     }
-
-    toFarsiNumber(n) {
-    const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-
-    return n
-        .toString()
-        .replace(/\d/g, x => farsiDigits[x]);
-    }
-
 
     componentDidMount() {
         this.mounted = true;
@@ -102,8 +100,8 @@ class TimerCountdown extends React.Component {
         const allowFontScaling = this.props.allowFontScaling;
         const style = this.props.style;
         return (<react_native_1.Text allowFontScaling={allowFontScaling} style={style}>
-        {this.getFormattedTime(secondsRemaining)}
-      </react_native_1.Text>);
+            {this.getFormattedTime(secondsRemaining)}
+        </react_native_1.Text>);
     }
 }
 TimerCountdown.defaultProps = {
