@@ -61,7 +61,7 @@ class TimerCountdown extends React.Component {
             const m = minutes < 10 ? '0' + minutes : minutes;
             let h = hours < 10 ? '0' + hours : hours;
             h = h === '00' ? '' : h + ':';
-            return toFarsiNumber(h) + toFarsiNumber(m) + ':' + toFarsiNumber(s);
+            return this.toFarsiNumber(h) + this.toFarsiNumber(m) + ':' + this.toFarsiNumber(s);
             // return h + m + ':' + s;
         };
         this.toFarsiNumber = (n) => {
